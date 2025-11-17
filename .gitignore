@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data files (large)
+data/
+*.xml
+*.mat
+*.json
+
+# Output files (generated)
+output/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.claude/
