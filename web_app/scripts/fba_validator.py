@@ -34,9 +34,17 @@ def main():
         use_loopless = config.get('loopless', False)
 
         # Advanced parameters
-        pathway_bounds = config.get('pathway_bounds', {})  # {rxn_id: {lower, upper}}
-        medium_exchanges = config.get('medium_exchanges', [])  # [{id, lower, upper, active}]
-        custom_constraints = config.get('custom_constraints', [])  # [{reaction, lower, upper}]
+        pathway_bounds = config.get('pathway_bounds', {})
+        if not isinstance(pathway_bounds, dict):
+            pathway_bounds = {}
+
+        medium_exchanges = config.get('medium_exchanges', [])
+        if not isinstance(medium_exchanges, list):
+            medium_exchanges = []
+
+        custom_constraints = config.get('custom_constraints', [])
+        if not isinstance(custom_constraints, list):
+            custom_constraints = []
 
         # Load model from pickle
         script_dir = Path(__file__).parent.parent
