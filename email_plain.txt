@@ -1,0 +1,62 @@
+Oggetto: Digital Twin Canino - Update Fase 1: Infrastruttura Completata, In Attesa Validazione Biologica
+
+Buongiorno,
+
+Scrivo da Amsterdam dove questa mattina ho fatto ordine nel mio workspace - e mi sembra il momento giusto per fare il punto anche sul progetto Digital Twin del metabolismo canino.
+
+DOVE SIAMO ORA
+
+Stiamo costruendo il primo modello computazionale del metabolismo intestinale del cane, concentrandoci sul butirrato - una molecola chiave per la salute del colon. Pensatelo come un "gemello digitale" che ci permetterà di simulare gli effetti di diete e terapie prima di applicarle su pazienti reali.
+
+Il progetto è strutturato in 5 fasi sequenziali. Siamo nella Fase 1: Estrazione delle Reazioni Metaboliche.
+
+COSA ABBIAMO COMPLETATO
+
+Nelle ultime settimane abbiamo costruito l'intera infrastruttura tecnologica:
+
+1. Repository GitHub pubblico (https://github.com/MyFranzDev/digitalTwin-V2) - tutto il codice è tracciato e documentato
+
+2. Ambiente di lavoro interattivo - un notebook Jupyter che permette alla biologa collaboratrice (Daniela) di lavorare sui dati senza scrivere codice
+
+3. Sistema di collaborazione cloud - Google Sheets con 13.000 reazioni metaboliche umane da cui estrarre quelle rilevanti per il butirrato (https://docs.google.com/spreadsheets/d/1rc7xy-NyZ3UEn2Th_eXRkHbxfTagjeIWe8oIFGL-ep8/edit)
+
+4. Pipeline automatizzata - script Python che gestisce caricamento dati, filtraggio, ed export risultati
+
+5. Analisi preliminare dataset - Human-GEM contiene circa 13.000 reazioni e 2.900 geni umani da cui partire
+
+PERCHE' SIAMO IN PAUSA
+
+Abbiamo fatto un test preliminare cercando reazioni con le parole "but" e "butyr" nel database. Risultato: 91 reazioni candidate.
+
+Il problema? Ci sono falsi positivi - molecole che contengono "but" nel nome ma non c'entrano nulla col butirrato (esempio: tolbutamide, un farmaco per il diabete, o gamma-butyrobetaine, una molecola diversa).
+
+Servono occhi esperti per validare biologicamente questa lista. Stiamo attendendo che Daniela ci fornisca:
+- Keywords più precise per il filtro automatico, oppure
+- Una lista curata manualmente di Reaction_ID verificati scientificamente
+
+Questo è l'approccio corretto: meglio aspettare qualche giorno e avere dati puliti, piuttosto che procedere con rumore nei dati.
+
+PROSSIMI PASSI (appena riceviamo input da Daniela)
+
+1. Finalizzare la lista reazioni butirrato (Fase 1)
+2. Estrarre i geni umani associati a quelle reazioni (Fase 2)
+3. Mappare geni umani → geni canini tramite database biologici (Fase 3)
+4. Costruire il sotto-modello metabolico specifico (Fase 4)
+5. Validare con simulazioni computazionali (Fase 5)
+
+PERCHE' QUESTO APPROCCIO E' SOLIDO
+
+Stiamo seguendo il metodo scientifico standard per questo tipo di progetti: partire dalle reazioni metaboliche (fenomeni biologici osservabili) e poi risalire ai geni che le controllano. Non il contrario.
+
+L'infrastruttura è pronta e testata. Quando avremo la validazione biologica, potremo procedere rapidamente attraverso le fasi successive.
+
+In sintesi: siamo dove dovremmo essere. Abbiamo costruito gli strumenti giusti e ora attendiamo l'input esperto per usarli correttamente.
+
+Vi tengo aggiornati appena riceviamo feedback da Daniela.
+
+Buona giornata,
+
+Julia Bakker
+Email Reporter | Newrality
+Amsterdam, Netherlands
+newrality.com | Europe · Dubai

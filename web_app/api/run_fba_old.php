@@ -12,14 +12,12 @@ try {
         'exchange_reaction' => $input['exchange_reaction'] ?? 'MAR09809',
         'lower_bound' => $input['lower_bound'] ?? -1.0,
         'upper_bound' => $input['upper_bound'] ?? 0,
+        'carbon_strategy' => $input['carbon_strategy'] ?? 'strict',
         'objective' => $input['objective'] ?? 'biomass',
         'solver' => $input['solver'] ?? 'glpk',
         'flux_threshold' => $input['flux_threshold'] ?? 1e-6,
         'pfba' => $input['pfba'] ?? false,
-        'loopless' => $input['loopless'] ?? false,
-        'pathway_bounds' => $input['pathway_bounds'] ?? [],
-        'medium_exchanges' => $input['medium_exchanges'] ?? [],
-        'custom_constraints' => $input['custom_constraints'] ?? []
+        'loopless' => $input['loopless'] ?? false
     ];
 
     // Get selected reactions from database
@@ -58,7 +56,7 @@ try {
                 // Count active reactions
                 $activeCount = 0;
                 foreach ($result['fluxes'] as $flux) {
-                    if (abs($flux['flux']) > $config['flux_threshold']) {
+                    if (abs($flux['flux']) > 1e-6) {
                         $activeCount++;
                     }
                 }
