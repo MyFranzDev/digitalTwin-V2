@@ -1,111 +1,43 @@
-# Email Draft per Daniela
+# Email inviata a Daniela - 19 Novembre 2025
 
-**Oggetto:** Interfaccia web interattiva pathway butirrato - Problema critico identificato con FBA
+---
+
+**Oggetto:** Interfaccia web digitalTwin-V2
+
+**Status:** ✅ INVIATA
 
 ---
 
 Ciao Daniela,
 
-Ho completato l'interfaccia web interattiva per esplorare insieme il pathway del butirrato. Puoi accedervi subito:
+come ti accennavo l'altro giorno, abbiamo creato una piccola interfaccia web che ricalca il percorso del notebook Python/Cobra.
 
-🔗 **URL:** https://newrality.com/demo/digitaltwin/
-🔑 **Password:** `digitaltwin2025`
+**URL:** https://newrality.com/demo/digitaltwin/
+**Password:** digitaltwin2025
 
-## Cosa trovi nell'interfaccia
+Implementa 4 step sequenziali:
 
-L'app replica il lavoro del notebook Jupyter ma in formato web interattivo, con 6 step:
+## Background & Model Info
+Descrizione biologica del pathway butirrato e info su Human-GEM.
 
-**Step 0 - Background:**
-Descrizione biologica del pathway butirrato → acetil-CoA (β-ossidazione)
+## Reactions
+Search interattivo con filtri. Per ogni reazione vedi: genes+GPR, metabolites+stoichiometry, database cross-references, annotations.
+Puoi selezionare le reazioni che preferisci in modo da prepararle per lo step successivo. Abbiamo fatto un sistema tipo carrello della spesa
 
-**Step 1 - Setup Human-GEM:**
-Download del modello metabolico Human-GEM (12,971 reazioni, 8,455 metaboliti, 2,887 geni)
+## Extract Genes
+Estrazione automatica ENSG IDs dalle reazioni selezionate. Download CSV + tabella genes-by-reaction.
 
-**Step 2 - Selezione Reazioni:**
-Ricerca interattiva delle reazioni del pathway. Puoi:
-- Cercare per keyword (ID, nome, descrizione)
-- Aggiungere reazioni al pathway
-- Rimuovere reazioni dalla selezione
-- Le tue selezioni rimangono salvate nella sessione
+## FBA Validation
+Questo è il punto più critico perchè su FBA ci siamo documentati nei giorni scorsi ma è una cosa che non conosciamo.
+In ogni caso, questo step ti dà massima libertà per la validazione scientifica.
+Abbiamo fatto in modo che più o meno si possa editare tutto, dai bounds alle exchange reactions.
 
-**Step 3 - Classificazione Fasi:**
-Classifica automatica delle reazioni in:
-- TRASPORTO (uptake butirrato)
-- ATTIVAZIONE (butirrato → butanoyl-CoA)
-- β-OSSIDAZIONE (degradazione catena)
-- ALTRO (opzionali/accessorie)
+**IMPORTANTE:** In teoria funziona ma vedo che con le reazioni che avevi selezionato non si chiude il pathway. Sarebbe quindi utile poter fare una prova del nove con un pathway certo così ci assicuriamo che il risultato sia quello atteso e ci tranquillizziamo sul fatto che il sistema funzioni al 100%. Pensi che si possa fare?
 
-**Step 4 - Estrazione ENSG:**
-Estrae i 21 geni umani (ENSG IDs) dalle reazioni selezionate. Puoi scaricare la lista in CSV.
+Per noi sono estremamente importanti i tuoi feedback pertanto aspettiamo tue indicazioni, commenti, richieste, aggiunte, modifiche...tutto quello che ti viene in mente!
 
-**Step 5 - FBA Validation:** ⚠️
-Valida la completezza funzionale del pathway con Flux Balance Analysis.
+Per ora mi fermerei e sistemerei questa parte prima di procedere alla parte ortholog, sei d'accordo?
+
+Buona serata
 
 ---
-
-## ⚠️ PROBLEMA CRITICO IDENTIFICATO
-
-Ho eseguito la FBA validation sulle 12 reazioni che mi hai indicato e ho trovato un **problema importante**:
-
-**Risultato:** 0/12 reazioni con flusso attivo (anche forzando l'uptake di SOLO butirrato)
-
-Questo significa che le 12 reazioni **NON formano un pathway funzionalmente completo** nel modello.
-
-### Possibili cause:
-1. **Manca una o più reazioni critiche** (es. tiolasi finale: 3-ketobutanoyl-CoA → 2× acetil-CoA)
-2. Il prodotto finale (acetil-CoA) non viene consumato correttamente nel modello
-3. Ci sono gap nel pathway (reazioni intermedie mancanti)
-
----
-
-## Domande per te
-
-Prima di procedere con la fase 2 (mapping human→dog ortholog), vorrei capire:
-
-1. **Le 12 reazioni dovrebbero essere funzionali standalone?**
-   O si appoggiano ad altre reazioni generiche del modello Human-GEM per completare il pathway?
-
-2. **Manca la tiolasi finale?**
-   Dovrebbe esserci una reazione che converte 3-ketobutanoyl-CoA → 2× acetil-CoA?
-
-3. **Qual è il prodotto finale atteso?**
-   È acetil-CoA oppure c'è un altro prodotto terminale che dovremmo considerare?
-
----
-
-## Prossimi passi
-
-Puoi:
-1. **Esplorare l'interfaccia** e provare a cercare/selezionare altre reazioni
-2. **Vedere i risultati FBA** nello Step 5 che evidenziano il problema
-3. **Scaricare i CSV** (ENSG list + report completo) dallo Step 4 e Step 5
-4. **Dirmi cosa ne pensi** e se vuoi che aggiungiamo altre reazioni al pathway
-
-Una volta che abbiamo un pathway completo e validato, possiamo procedere con:
-- Mapping ENSG human → ENSCAFG dog (BioMart)
-- Creazione sub-model canino
-- Validazione finale con FBA
-
----
-
-## Note Tecniche
-
-L'interfaccia è stata sviluppata con:
-- Frontend: PHP + HTML/CSS/JavaScript
-- Backend: Python 3.10 + COBRApy 0.30.0
-- Database: MySQL (salva le tue sessioni/selezioni)
-- Deployed su: DreamHost (server Newrality)
-
-Tutto il codice è trasparente e puoi vedere esattamente cosa fa ogni step. Niente "magia AI" nascosta - solo analisi metabolica standard con COBRApy.
-
----
-
-Fammi sapere quando hai tempo di provare l'interfaccia e ne parliamo!
-
-Francesco
-
----
-
-**P.S.** Se hai domande o problemi ad accedere, scrivimi subito.
-
-**P.P.S.** L'interfaccia salva automaticamente le tue selezioni, quindi puoi fermarti e riprendere quando vuoi.

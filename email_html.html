@@ -3,125 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Twin Canino - Update Fase 1</title>
+    <title>Email Daniela - Digital Twin</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .email-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #34495e;
+            font-size: 16px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+        .access-box {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+        .access-box strong {
+            color: #2980b9;
+        }
+        .step {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        .step h3 {
+            margin-top: 0;
+            color: #2c3e50;
+            font-size: 15px;
+        }
+        .step p {
+            margin: 8px 0 0 0;
+            color: #555;
+        }
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #ffc107;
+            margin: 15px 0;
+        }
+        .important {
+            background-color: #ffe5e5;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #e74c3c;
+            margin: 15px 0;
+        }
+        .signature {
+            margin-top: 30px;
+            color: #666;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
-<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 650px; margin: 0 auto; padding: 20px;">
+<body>
+    <div class="email-container">
+        <p>Ciao Daniela,</p>
 
-<p style="font-size: 15px; color: #666; margin-bottom: 25px;">
-    Scrivo da Amsterdam dove questa mattina ho fatto ordine nel mio workspace - e mi sembra il momento giusto per fare il punto anche sul progetto Digital Twin del metabolismo canino 📊
-</p>
+        <p>come ti accennavo l'altro giorno, abbiamo creato una piccola interfaccia web che ricalca il percorso del notebook Python/Cobra.</p>
 
-<h2 style="color: #0066cc; font-size: 18px; margin-top: 30px; margin-bottom: 15px; border-bottom: 2px solid #e0e0e0; padding-bottom: 8px;">
-    Dove Siamo Ora
-</h2>
+        <div class="access-box">
+            <strong>URL:</strong> <a href="https://newrality.com/demo/digitaltwin/">https://newrality.com/demo/digitaltwin/</a><br>
+            <strong>Password:</strong> digitaltwin2025
+        </div>
 
-<p>
-    Stiamo costruendo il primo <strong>modello computazionale del metabolismo intestinale del cane</strong>, concentrandoci sul butirrato - una molecola chiave per la salute del colon. Pensatelo come un "gemello digitale" che ci permetterà di simulare gli effetti di diete e terapie prima di applicarle su pazienti reali.
-</p>
+        <p>Implementa 4 step sequenziali:</p>
 
-<p>
-    Il progetto è strutturato in 5 fasi sequenziali. Siamo nella <strong>Fase 1: Estrazione delle Reazioni Metaboliche</strong>.
-</p>
+        <div class="step">
+            <h3>Background & Model Info</h3>
+            <p>Descrizione biologica del pathway butirrato e info su Human-GEM.</p>
+        </div>
 
-<h2 style="color: #0066cc; font-size: 18px; margin-top: 30px; margin-bottom: 15px; border-bottom: 2px solid #e0e0e0; padding-bottom: 8px;">
-    Cosa Abbiamo Completato
-</h2>
+        <div class="step">
+            <h3>Reactions</h3>
+            <p>Search interattivo con filtri. Per ogni reazione vedi: genes+GPR, metabolites+stoichiometry, database cross-references, annotations.</p>
+            <p>Puoi selezionare le reazioni che preferisci in modo da prepararle per lo step successivo. <strong>Abbiamo fatto un sistema tipo carrello della spesa</strong> 😊</p>
+        </div>
 
-<p>Nelle ultime settimane abbiamo costruito l'intera <strong>infrastruttura tecnologica</strong>:</p>
+        <div class="step">
+            <h3>Extract Genes</h3>
+            <p>Estrazione automatica ENSG IDs dalle reazioni selezionate. Download CSV + tabella genes-by-reaction.</p>
+        </div>
 
-<ol style="line-height: 1.8;">
-    <li><strong>Repository GitHub pubblico</strong> (<a href="https://github.com/MyFranzDev/digitalTwin-V2" style="color: #0066cc;">link</a>) - tutto il codice è tracciato e documentato</li>
+        <div class="step">
+            <h3>FBA Validation</h3>
+            <p>Questo è il punto più critico perchè su FBA ci siamo documentati nei giorni scorsi ma è <strong>una cosa che non conosciamo</strong>.</p>
+            <p>In ogni caso, questo step ti dà massima libertà per la validazione scientifica.</p>
+            <p>Abbiamo fatto in modo che più o meno si possa editare tutto, dai bounds alle exchange reactions.</p>
+        </div>
 
-    <li><strong>Ambiente di lavoro interattivo</strong> - un notebook Jupyter che permette alla biologa collaboratrice (Daniela) di lavorare sui dati senza scrivere codice</li>
+        <div class="important">
+            <strong>IMPORTANTE:</strong> In teoria funziona ma vedo che con le reazioni che avevi selezionato non si chiude il pathway. Sarebbe quindi utile poter fare una <strong>prova del nove con un pathway certo</strong> così ci assicuriamo che il risultato sia quello atteso e ci tranquillizziamo sul fatto che il sistema funzioni al 100%. Pensi che si possa fare?
+        </div>
 
-    <li><strong>Sistema di collaborazione cloud</strong> - Google Sheets con 13.000 reazioni metaboliche umane da cui estrarre quelle rilevanti per il butirrato (<a href="https://docs.google.com/spreadsheets/d/1rc7xy-NyZ3UEn2Th_eXRkHbxfTagjeIWe8oIFGL-ep8/edit" style="color: #0066cc;">link</a>)</li>
+        <div class="highlight">
+            <p>Per noi sono estremamente importanti i tuoi feedback pertanto aspettiamo tue indicazioni, commenti, richieste, aggiunte, modifiche...tutto quello che ti viene in mente!</p>
+        </div>
 
-    <li><strong>Pipeline automatizzata</strong> - script Python che gestisce caricamento dati, filtraggio, ed export risultati</li>
+        <p>Per ora mi fermerei e sistemerei questa parte prima di procedere alla parte ortholog, sei d'accordo?</p>
 
-    <li><strong>Analisi preliminare dataset</strong> - Human-GEM contiene circa 13.000 reazioni e 2.900 geni umani da cui partire</li>
-</ol>
-
-<h2 style="color: #0066cc; font-size: 18px; margin-top: 30px; margin-bottom: 15px; border-bottom: 2px solid #e0e0e0; padding-bottom: 8px;">
-    Perché Siamo in Pausa ⏸️
-</h2>
-
-<p>
-    Abbiamo fatto un test preliminare cercando reazioni con le parole "but" e "butyr" nel database. Risultato: <strong>91 reazioni candidate</strong>.
-</p>
-
-<p>
-    Il problema? Ci sono <strong>falsi positivi</strong> - molecole che contengono "but" nel nome ma non c'entrano nulla col butirrato (esempio: <em>tolbutamide</em>, un farmaco per il diabete, o <em>gamma-butyrobetaine</em>, una molecola diversa).
-</p>
-
-<p>
-    Servono occhi esperti per validare biologicamente questa lista. Stiamo attendendo che Daniela ci fornisca:
-</p>
-
-<ul style="line-height: 1.8;">
-    <li>Keywords più precise per il filtro automatico, <strong>oppure</strong></li>
-    <li>Una lista curata manualmente di Reaction_ID verificati scientificamente</li>
-</ul>
-
-<p style="background-color: #f5f9ff; padding: 15px; border-left: 4px solid #0066cc; margin: 20px 0;">
-    <strong>Questo è l'approccio corretto:</strong> meglio aspettare qualche giorno e avere dati puliti, piuttosto che procedere con rumore nei dati.
-</p>
-
-<h2 style="color: #0066cc; font-size: 18px; margin-top: 30px; margin-bottom: 15px; border-bottom: 2px solid #e0e0e0; padding-bottom: 8px;">
-    Prossimi Passi (appena riceviamo input da Daniela)
-</h2>
-
-<ol style="line-height: 1.8;">
-    <li>Finalizzare la lista reazioni butirrato (Fase 1)</li>
-    <li>Estrarre i geni umani associati a quelle reazioni (Fase 2)</li>
-    <li>Mappare geni umani → geni canini tramite database biologici (Fase 3)</li>
-    <li>Costruire il sotto-modello metabolico specifico (Fase 4)</li>
-    <li>Validare con simulazioni computazionali (Fase 5)</li>
-</ol>
-
-<h2 style="color: #0066cc; font-size: 18px; margin-top: 30px; margin-bottom: 15px; border-bottom: 2px solid #e0e0e0; padding-bottom: 8px;">
-    Perché Questo Approccio è Solido ✓
-</h2>
-
-<p>
-    Stiamo seguendo il metodo scientifico standard per questo tipo di progetti: partire dalle <strong>reazioni metaboliche</strong> (fenomeni biologici osservabili) e poi risalire ai geni che le controllano. Non il contrario.
-</p>
-
-<p>
-    L'infrastruttura è pronta e testata. Quando avremo la validazione biologica, potremo procedere rapidamente attraverso le fasi successive.
-</p>
-
-<p style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e0e0e0; font-size: 15px;">
-    <strong>In sintesi:</strong> siamo dove dovremmo essere. Abbiamo costruito gli strumenti giusti e ora attendiamo l'input esperto per usarli correttamente.
-</p>
-
-<p style="font-size: 15px; color: #666; margin-top: 20px;">
-    Vi tengo aggiornati appena riceviamo feedback da Daniela.
-</p>
-
-<p style="margin-top: 25px;">
-    Buona giornata,
-</p>
-
-<div style="margin-top: 35px; padding-top: 20px; border-top: 2px solid #0066cc;">
-    <table cellpadding="0" cellspacing="0" border="0">
-        <tr>
-            <td style="padding-right: 15px; vertical-align: top;">
-                <img src="https://newrality.com/JuliaBakker2.png" width="120" height="120" style="border-radius: 8px;" alt="Julia Bakker">
-            </td>
-            <td style="vertical-align: top;">
-                <div style="font-size: 16px; font-weight: bold; color: #333;">Julia Bakker 🌷</div>
-                <div style="font-size: 14px; color: #666;">Email Reporter | Newrality</div>
-                <div style="font-size: 13px; color: #666;">📍 Amsterdam, Netherlands</div>
-                <div style="margin-top: 10px;">
-                    <img src="https://newrality.com/newrality-logo-horizontal.png" width="140" height="39" alt="Newrality">
-                </div>
-                <div style="font-size: 12px; color: #999; margin-top: 6px;">
-                    <a href="https://newrality.com" style="color: #0066cc;">newrality.com</a> | Europe · Dubai
-                </div>
-            </td>
-        </tr>
-    </table>
-</div>
-
+        <div class="signature">
+            Buona serata<br><br>
+            Francesco
+        </div>
+    </div>
 </body>
 </html>
